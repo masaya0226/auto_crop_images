@@ -1,0 +1,19 @@
+version: "3"
+services:
+  auto_crop_images:
+    build:
+      context: .
+      dockerfile: "Dockerfile"
+    volumes:
+      - type: bind
+        source: ./input
+        target: "/src/input"
+      - type: bind
+        source: ./output
+        target: "/src/output"
+      - type: bind
+        source: ./u2net
+        target: "/src/u2net"
+      - type: bind
+        source: ./main.py
+        target: "/src/main.py"
